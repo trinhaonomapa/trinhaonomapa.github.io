@@ -12,6 +12,6 @@ Após este acontecimento que já ocorreu outras vezes no passado (por exemplo em
 Com vista a uma reorganização do território florestal e propriedades rústicas nestas duas aldeias, este site apresenta duas funções principais:
 
 - agregar e simplificar a informação relativamente a legislação relaccionada com o levantamento de prejuízos, candidaturas a fundos de apoio, e registo de propriedades privadas;
-- disponibilizar um espaço pessoal (acessível mediante credenciais únicas a cada proprietário), onde os habitantes e descendentes podem consultar em detalhe toda a informação sobre as suas propriedades.
+- disponibilizar um espaço onde os habitantes e descendentes podem consultar informação sobre as suas propriedades.
 
 Esperamos, num futuro próximo, servir de exemplo para outras aldeias vizinhas de maneira a preservar a paisagem de um dos concelhos mais bonitos de Portugal.
