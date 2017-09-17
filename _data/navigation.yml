@@ -1,5 +1,7 @@
 # main links
 main:
+  - title: "Legislação"
+    url: /legislacao/
   - title: "Sobre Nós"
     url: /sobre/
   # - title: "About"
