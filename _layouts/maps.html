@@ -79,15 +79,29 @@ layout: single
           elevations = null;
         }
 
-        downloadCSV({
-          locations: locations,
-          elevations: elevations,
-          filename: "map-data.csv"
-        });
+        // validate mandatory fields
+        var filename = document.getElementById('owner').value;
+        if (filename) {
+          var description = document.getElementById('description').value;
+          if (description) filename += "-" + description;
+          filename += ".csv";
+
+          downloadCSV({
+            locations: locations,
+            elevations: elevations,
+            filename: filename
+          });
         
-        message.innerHTML = "{{ site.data.ui-text[site.locale].download_success_msg }}" +
-                            "<a href='mailto:{{ site.author.email }}'>{{ site.author.email }}</a>";
+          message.innerHTML = "{{ site.data.ui-text[site.locale].download_success_msg }}" +
+                              "<a href='mailto:{{ site.author.email }}'>{{ site.author.email }}</a>";
+        }
+        else {
+          message.innerHTML = "{{ site.data.ui-text[site.locale].download_error_msg }}";
+        }
       });
+    }
+    else {
+        message.innerHTML = "{{ site.data.ui-text[site.locale].download_missing_data }}";
     }
   }
 
