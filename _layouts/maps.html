@@ -1,0 +1,168 @@
+---
+layout: single
+---
+
+{{ content }}
+<div id="map" class="responsive-video-container"></div>
+<div id="form">
+  <table>
+    <tr><td>Proprietário:</td> <td><input id='owner' type='text'/> </td> </tr>
+    <tr><td>Freguesia:</td> <td><select id='parish'> +
+            <option value='061208 - PORTELA DO FOJO-MACHIO' SELECTED>Portela do Fojo - Machio</option>
+            </select> </td></tr>
+    <tr><td>Nº Registo:</td> <td><input id='article' type='number' min="0"/> </td> </tr>
+    <tr><td>Ano Inscrição:</td> <td><input id='year' type='number' min="1900" max="2099" step="1" value="1900" /> </td> </tr>
+    <tr><td>Designação:</td> <td><input id='description' type='text'/> </td> </tr>
+    <tr><td>Confrontação Norte:</td> <td><input id='boundary-north' type='text'/> </td> </tr>
+    <tr><td>Confrontação Sul:</td> <td><input id='boundary-south' type='text'/> </td> </tr>
+    <tr><td>Confrontação Nascente:</td> <td><input id='boundary-east' type='text'/> </td> </tr>
+    <tr><td>Confrontação Poente:</td> <td><input id='boundary-west' type='text'/> </td> </tr>
+    <tr><td>Área Registada (m<sup>2</sup>):</td> <td><input id='area-reg' type='number' min="0"/> </td> </tr>
+    <tr><td></td><td><input type='button' value='Guardar' onclick='saveData()'/></td></tr>
+  </table>
+  <div id="message"></div>
+</div>
+
+<script>
+  var map;
+  var poly;
+  var elevator;
+  var message;
+  var ACTIVE_COLOR = '#FF0000';
+  var INACTIVE_COLOR = '#0000FF' 
+
+  function initMap() {
+    var property;
+    var uluru = {lat: 39.9948962, lng: -8.0244581};
+    elevator = new google.maps.ElevationService;
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 17,
+      center: uluru,
+      mapTypeId: 'hybrid'
+    });
+
+    message = document.getElementById('message');
+    google.maps.event.addListener(map, 'click', function(event) {
+      var path = [ event.latLng, event.latLng ];
+      if (poly)
+      {
+          poly.setOptions({ strokeColor: INACTIVE_COLOR, fillColor: INACTIVE_COLOR });
+      }
+
+      poly = new google.maps.Polygon({
+        paths: path,
+        strokeColor: ACTIVE_COLOR,
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: ACTIVE_COLOR,
+        fillOpacity: 0.35,
+        geodesic: true,
+        editable: true,
+        draggable: true
+      });
+      poly.setMap(map);
+    });
+  }
+
+  function saveData() {
+    if (poly) {
+      var locations = []
+      var path = poly.getPath();
+      for (var i = 0; i < path.getLength(); i++) {
+          locations.push(path.getAt(i))
+      }
+
+      elevator.getElevationForLocations({
+        'locations': locations
+      }, function(elevations, status) {
+        if (status !== 'OK') {
+          elevations = null;
+        }
+
+        downloadCSV({
+          locations: locations,
+          elevations: elevations,
+          filename: "map-data.csv"
+        });
+        
+        message.innerHTML = "{{ site.data.ui-text[site.locale].download_success_msg }}" +
+                            "<a href='mailto:{{ site.author.email }}'>{{ site.author.email }}</a>";
+      });
+    }
+  }
+
+  function getCSVData(locations,elevations) {
+    var columnDelimiter = ',';
+    var lineDelimiter = '\n';
+    var result = '';
+
+    // add metadata header
+    var metadataHeader = [
+        'Proprietario',
+        'Freguesia',
+        'Artigo',
+        'Ano Inscricao',
+        'Designacao',
+        'Confrontacao Norte',
+        'Confrontacao Sul',
+        'Confrontacao Nascente',
+        'Confrontacao Poente',
+        'Area Registada'];
+    result += metadataHeader.join(columnDelimiter);
+    result += lineDelimiter;
+
+    // add form metadata values
+    var metadata = Array.from([
+        'owner',
+        'parish',
+        'article',
+        'year',
+        'description',
+        'boundary-north',
+        'boundary-south',
+        'boundary-east',
+        'boundary-west',
+        'area-reg'],
+        id => document.getElementById(id).value);
+    result += metadata.join(columnDelimiter);
+    result += lineDelimiter;
+
+    // blank line separating metadata from point data
+    result += lineDelimiter;
+
+    // add point header
+    metadataHeader = ['Latitude','Longitude','Altitude'];
+    result += metadataHeader.join(columnDelimiter);
+    result += lineDelimiter;
+
+    // add point data
+    for (var i = 0; i < locations.length; i++) {
+      var latLng = locations[i];
+      var elevation = elevations ? elevations[i].elevation : NaN;
+      result += [latLng.lat(), latLng.lng(), elevation].join(columnDelimiter);
+      result += lineDelimiter;
+    }
+
+    return result;
+  }
+
+  function downloadCSV(args) {
+    var csv = getCSVData(args.locations,args.elevations);
+
+    if (csv == null) return;
+    var filename = args.filename || 'export.csv';
+
+    if (!csv.match(/^data:text\/csv/i)) {
+        csv = 'data:text/csv;charset=utf-8,' + csv;
+    }
+
+    var data = encodeURI(csv);
+    var link = document.createElement('a');
+    link.setAttribute('href', data);
+    link.setAttribute('download', filename);
+    link.click();
+  }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key={{ site.google_api }}&amp;callback=initMap">
+</script>

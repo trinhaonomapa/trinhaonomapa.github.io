@@ -242,3 +242,6 @@ defaults:
       comments: # true
       share: true
       related: true
+
+# API Keys
+google_api: AIzaSyD64aV6oSSR8F0GO_hpfxEuU2Lcbqou3eY

@@ -225,6 +225,7 @@ pt: &DEFAULT_PT
   comment_success_msg        : "Obrigado pelo seu comentário! Será visível no site logo que aprovado."
   comment_error_msg          : "Lamento, ocorreu um erro na sua submissão. Por favor verifique se todos os campos obrigatórios estão corretamente preenchidos e tente novamente."
   loading_label              : "A carregar..."
+  download_success_msg       : "Os seus dados foram descarregados com sucesso. Para contribuir para o Trinhão no Mapa, envie um email para: "
 # Brazilian Portuguese
 pt-BR:
   page                       : "Página"
