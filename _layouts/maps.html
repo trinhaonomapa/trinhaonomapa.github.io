@@ -137,7 +137,7 @@ layout: single
         'boundary-east',
         'boundary-west',
         'area-reg'],
-        id => document.getElementById(id).value);
+        function(id) { return document.getElementById(id).value; });
     result += metadata.join(columnDelimiter);
     result += lineDelimiter;
 
