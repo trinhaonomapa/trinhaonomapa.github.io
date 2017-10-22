@@ -3,7 +3,12 @@ layout: single
 ---
 
 {{ content }}
-<div id="map" class="responsive-video-container"></div>
+<div class="map-wrap">
+  <div class="floating-panel" >
+    <input onclick="clearData()" type=button value="Limpar Mapa">
+  </div>
+  <div id="map" class="responsive-video-container"></div>
+</div>
 <div id="form">
   <table>
     <tr><td>Proprietário (obrigatório):</td> <td><input id='owner' type='text'/> </td> </tr>
@@ -43,12 +48,15 @@ layout: single
 
     message = document.getElementById('message');
     google.maps.event.addListener(map, 'click', function(event) {
-      var path = [ event.latLng, event.latLng ];
+      
       if (poly)
       {
-          poly.setOptions({ strokeColor: INACTIVE_COLOR, fillColor: INACTIVE_COLOR });
+        var vertices = poly.getPath();
+        if (vertices.getLength() > 2) return;
+        poly.setMap(null);
       }
 
+      var path = [ event.latLng, event.latLng ];
       poly = new google.maps.Polygon({
         paths: path,
         strokeColor: ACTIVE_COLOR,
@@ -62,6 +70,14 @@ layout: single
       });
       poly.setMap(map);
     });
+  }
+
+  function clearData() {
+    if (poly)
+    {
+      poly.setMap(null);
+      poly = null;
+    }
   }
 
   function saveData() {
