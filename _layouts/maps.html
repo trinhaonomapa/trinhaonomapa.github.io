@@ -144,7 +144,7 @@ layout: single
     result += lineDelimiter;
 
     // add form metadata values
-    var metadata = Array.from([
+    var metadata = [
         'owner',
         'parish',
         'article',
@@ -154,8 +154,10 @@ layout: single
         'boundary-south',
         'boundary-east',
         'boundary-west',
-        'area-reg'],
-        function(id) { return document.getElementById(id).value; });
+        'area-reg'];
+    for (var i = 0; i < metadata.length; i++) {
+      metadata[i] = document.getElementById(metadata[i]).value;
+    }
     result += metadata.join(columnDelimiter);
     result += lineDelimiter;
 
