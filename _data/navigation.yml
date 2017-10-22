@@ -2,6 +2,8 @@
 main:
   - title: "Mapas"
     url: /mapas/
+  - title: "Notícias"
+    url: /noticias/
   - title: "Legislação"
     url: /legislacao/
   - title: "Sobre Nós"
