@@ -12,10 +12,10 @@ layout: single
 <div id="form">
   <table>
     <tr><td>Proprietário (obrigatório):</td> <td><input id='owner' type='text'/> </td> </tr>
-    <tr><td>Freguesia:</td> <td><select id='parish'> +
+    <tr><td>Freguesia (obrigatório):</td> <td><select id='parish'> +
             <option value='061208 - PORTELA DO FOJO-MACHIO' SELECTED>Portela do Fojo - Machio</option>
             </select> </td></tr>
-    <tr><td>Nº Registo:</td> <td><input id='article' type='number' min="0"/> </td> </tr>
+    <tr><td>Nº Artigo Matricial (obrigatório):</td> <td><input id='article' type='number' min="0"/> </td> </tr>
     <tr><td>Ano Inscrição:</td> <td><input id='year' type='number' min="1900" max="2099" step="1" value="1900" /> </td> </tr>
     <tr><td>Designação:</td> <td><input id='description' type='text'/> </td> </tr>
     <tr><td>Confrontação Norte:</td> <td><input id='boundary-north' type='text'/> </td> </tr>
@@ -97,7 +97,9 @@ layout: single
 
         // validate mandatory fields
         var filename = document.getElementById('owner').value;
-        if (filename) {
+        var article = document.getElementById('article').value;
+        if (filename && article) {
+          filename += "-" + article;
           var description = document.getElementById('description').value;
           if (description) filename += "-" + description;
           filename += ".csv";
