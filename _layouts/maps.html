@@ -23,6 +23,7 @@ layout: single
     <tr><td>Confrontação Nascente:</td> <td><input id='boundary-east' type='text'/> </td> </tr>
     <tr><td>Confrontação Poente:</td> <td><input id='boundary-west' type='text'/> </td> </tr>
     <tr><td>Área Registada (m<sup>2</sup>):</td> <td><input id='area-reg' type='number' min="0"/> </td> </tr>
+    <tr><td>Área Estimada (m<sup>2</sup>):</td> <td><div id='area-est'/> </td> </tr>
     <tr><td></td><td><input type='button' value='Guardar' onclick='saveData()'/></td></tr>
   </table>
   <div id="message"></div>
@@ -139,7 +140,8 @@ layout: single
         'Confrontacao Sul',
         'Confrontacao Nascente',
         'Confrontacao Poente',
-        'Area Registada'];
+        'Area Registada',
+        'Area Estimada'];
     result += metadataHeader.join(columnDelimiter);
     result += lineDelimiter;
 
@@ -154,9 +156,17 @@ layout: single
         'boundary-south',
         'boundary-east',
         'boundary-west',
-        'area-reg'];
+        'area-reg',
+        'area-est'];
     for (var i = 0; i < metadata.length; i++) {
-      metadata[i] = document.getElementById(metadata[i]).value;
+      var element = document.getElementById(metadata[i])
+      if (element.id == 'area-est')
+      {
+        var area = google.maps.geometry.spherical.computeArea(locations);
+        element.value = area
+        element.innerHTML = area.toFixed(0);
+      }
+      metadata[i] = element.value;
     }
     result += metadata.join(columnDelimiter);
     result += lineDelimiter;
@@ -209,5 +219,5 @@ layout: single
   }
 </script>
 <script async defer
-src="https://maps.googleapis.com/maps/api/js?key={{ site.google_api }}&amp;callback=initMap">
+src="https://maps.googleapis.com/maps/api/js?key={{ site.google_api }}&amp;libraries=geometry&amp;callback=initMap">
 </script>
