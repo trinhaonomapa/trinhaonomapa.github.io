@@ -89,6 +89,9 @@ layout: single
     for (var i = 0; i < metadata.length; i++) {
       var element = document.getElementById(metadata[i]);
       element.value = data[element.id];
+      if (element.id == 'area-est') {
+        element.innerHTML = parseFloat(element.value).toFixed(0);
+      }
     }
   }
 
