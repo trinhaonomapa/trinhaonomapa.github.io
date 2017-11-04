@@ -24,7 +24,10 @@ layout: single
     <tr><td>Confrontação Poente:</td> <td><input id='boundary-west' type='text'/> </td> </tr>
     <tr><td>Área Registada (m<sup>2</sup>):</td> <td><input id='area-reg' type='number' min="0"/> </td> </tr>
     <tr><td>Área Estimada (m<sup>2</sup>):</td> <td><div id='area-est'/> </td> </tr>
-    <tr><td></td><td><input type='button' value='Guardar' onclick='saveData()'/></td></tr>
+    <tr>
+      <td><input id='open' type='file' name='csv'/></td>
+      <td><input type='button' value='Guardar' onclick='saveData()'/></td>
+    </tr>
   </table>
   <div id="message"></div>
 </div>
@@ -35,7 +38,19 @@ layout: single
   var elevator;
   var message;
   var ACTIVE_COLOR = '#FF0000';
-  var INACTIVE_COLOR = '#0000FF' 
+  var INACTIVE_COLOR = '#0000FF';
+  var metadata = [
+        'owner',
+        'parish',
+        'article',
+        'year',
+        'description',
+        'boundary-north',
+        'boundary-south',
+        'boundary-east',
+        'boundary-west',
+        'area-reg',
+        'area-est'];
 
   function initMap() {
     var property;
@@ -46,6 +61,13 @@ layout: single
       center: uluru,
       mapTypeId: 'hybrid'
     });
+
+    var open = document.getElementById('open');
+    open.onchange = function(e) {
+      var files = e.target.files;
+      if (files.length == 0) return;
+      openData(files[0]);
+    };
 
     message = document.getElementById('message');
     google.maps.event.addListener(map, 'click', function(event) {
@@ -58,19 +80,32 @@ layout: single
       }
 
       var path = [ event.latLng, event.latLng ];
-      poly = new google.maps.Polygon({
-        paths: path,
-        strokeColor: ACTIVE_COLOR,
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: ACTIVE_COLOR,
-        fillOpacity: 0.35,
-        geodesic: true,
-        editable: true,
-        draggable: true
-      });
-      poly.setMap(map);
+      setData(path);
     });
+  }
+
+  function setMetadata(data) {
+    // update form metadata values
+    for (var i = 0; i < metadata.length; i++) {
+      var element = document.getElementById(metadata[i]);
+      element.value = data[element.id];
+    }
+  }
+
+  function setData(path) {
+    clearData();
+    poly = new google.maps.Polygon({
+      paths: path,
+      strokeColor: ACTIVE_COLOR,
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: ACTIVE_COLOR,
+      fillOpacity: 0.35,
+      geodesic: true,
+      editable: true,
+      draggable: true
+    });
+    poly.setMap(map);
   }
 
   function clearData() {
@@ -79,6 +114,17 @@ layout: single
       poly.setMap(null);
       poly = null;
     }
+  }
+
+  function openData(filename) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var data = parseCSVData(reader.result);
+      var path = data['path'];
+      setMetadata(data);
+      setData(path);
+    };
+    reader.readAsText(filename);
   }
 
   function saveData() {
@@ -124,6 +170,40 @@ layout: single
     }
   }
 
+  // return data dictionary
+  function parseCSVData(text) {
+    var result = {};
+    var columnDelimiter = ',';
+    var lineDelimiter = '\n';
+
+    if (text == null) return result;
+    var lines = text.split(lineDelimiter);
+
+    // parse metadata header
+    if (lines.length > 2) {
+      var attributes = lines[0].split(columnDelimiter);
+      var values = lines[1].split(columnDelimiter);
+      for (var i = 0; i < attributes.length; i++) {
+        var name = metadata[i];
+        result[name] = values[i];
+      }
+    }
+
+    // parse point data
+    var path = []
+    for (var i = 4; i < lines.length; i++) {
+      var values = lines[i].split(columnDelimiter);
+      if (values.length > 1) {
+        path.push({
+          lat: parseFloat(values[0]),
+          lng: parseFloat(values[1])
+        });
+      }
+    }
+    result['path'] = path;
+    return result;
+  }
+
   function getCSVData(locations,elevations) {
     var columnDelimiter = ',';
     var lineDelimiter = '\n';
@@ -146,18 +226,6 @@ layout: single
     result += lineDelimiter;
 
     // add form metadata values
-    var metadata = [
-        'owner',
-        'parish',
-        'article',
-        'year',
-        'description',
-        'boundary-north',
-        'boundary-south',
-        'boundary-east',
-        'boundary-west',
-        'area-reg',
-        'area-est'];
     for (var i = 0; i < metadata.length; i++) {
       var element = document.getElementById(metadata[i])
       if (element.id == 'area-est')
