@@ -35,7 +35,6 @@ layout: single
 <script>
   var map;
   var poly;
-  var elevator;
   var message;
   var ACTIVE_COLOR = '#FF0000';
   var INACTIVE_COLOR = '#0000FF';
@@ -55,7 +54,6 @@ layout: single
   function initMap() {
     var property;
     var uluru = {lat: 39.9948962, lng: -8.0244581};
-    elevator = new google.maps.ElevationService;
     map = new google.maps.Map(document.getElementById('map'), {
       zoom: 17,
       center: uluru,
@@ -138,36 +136,27 @@ layout: single
           locations.push(path.getAt(i))
       }
 
-      elevator.getElevationForLocations({
-        'locations': locations
-      }, function(elevations, status) {
-        if (status !== 'OK') {
-          elevations = null;
-        }
+      // validate mandatory fields
+      var filename = document.getElementById('owner').value;
+      var article = document.getElementById('article').value;
+      if (filename && article) {
+        filename += "-" + article;
+        var description = document.getElementById('description').value;
+        if (description) filename += "-" + description;
+        filename += ".csv";
 
-        // validate mandatory fields
-        var filename = document.getElementById('owner').value;
-        var article = document.getElementById('article').value;
-        if (filename && article) {
-          filename += "-" + article;
-          var description = document.getElementById('description').value;
-          if (description) filename += "-" + description;
-          filename += ".csv";
-
-          downloadCSV({
-            locations: locations,
-            elevations: elevations,
-            filename: filename
-          });
-        
-          message.innerHTML = "<p>{{ site.data.ui-text[site.locale].download_success_msg }}" +
-                              "<a href='mailto:{{ site.author.email }}'>{{ site.author.email }}</a></p>" +
-                              "<p>{{ site.data.ui-text[site.locale].download_disclaimer }}</p>";
-        }
-        else {
-          message.innerHTML = "{{ site.data.ui-text[site.locale].download_error_msg }}";
-        }
-      });
+        downloadCSV({
+          locations: locations,
+          filename: filename
+        });
+      
+        message.innerHTML = "<p>{{ site.data.ui-text[site.locale].download_success_msg }}" +
+                            "<a href='mailto:{{ site.author.email }}'>{{ site.author.email }}</a></p>" +
+                            "<p>{{ site.data.ui-text[site.locale].download_disclaimer }}</p>";
+      }
+      else {
+        message.innerHTML = "{{ site.data.ui-text[site.locale].download_error_msg }}";
+      }
     }
     else {
         message.innerHTML = "{{ site.data.ui-text[site.locale].download_missing_data }}";
@@ -208,7 +197,7 @@ layout: single
     return result;
   }
 
-  function getCSVData(locations,elevations) {
+  function getCSVData(locations) {
     var columnDelimiter = ',';
     var lineDelimiter = '\n';
     var result = '';
@@ -254,8 +243,7 @@ layout: single
     // add point data
     for (var i = 0; i < locations.length; i++) {
       var latLng = locations[i];
-      var elevation = elevations ? elevations[i].elevation : NaN;
-      result += [latLng.lat(), latLng.lng(), elevation].join(columnDelimiter);
+      result += [latLng.lat(), latLng.lng()].join(columnDelimiter);
       result += lineDelimiter;
     }
 
@@ -263,7 +251,7 @@ layout: single
   }
 
   function downloadCSV(args) {
-    var data = getCSVData(args.locations,args.elevations);
+    var data = getCSVData(args.locations);
 
     if (data == null) return;
     var filename = args.filename || 'export.csv';
