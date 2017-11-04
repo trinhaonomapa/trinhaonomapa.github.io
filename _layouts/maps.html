@@ -157,8 +157,9 @@ layout: single
             filename: filename
           });
         
-          message.innerHTML = "{{ site.data.ui-text[site.locale].download_success_msg }}" +
-                              "<a href='mailto:{{ site.author.email }}'>{{ site.author.email }}</a>";
+          message.innerHTML = "<p>{{ site.data.ui-text[site.locale].download_success_msg }}" +
+                              "<a href='mailto:{{ site.author.email }}'>{{ site.author.email }}</a></p>" +
+                              "<p>{{ site.data.ui-text[site.locale].download_disclaimer }}</p>";
         }
         else {
           message.innerHTML = "{{ site.data.ui-text[site.locale].download_error_msg }}";

@@ -228,6 +228,7 @@ pt: &DEFAULT_PT
   download_success_msg       : "Os seus dados foram descarregados com sucesso. Para contribuir para o Trinhão no Mapa, envie um email para: "
   download_error_msg         : "Lamentamos, ocorreu um erro na submissão. Por favor verifique se todos os campos obrigatórios estão corretamente preenchidos e tente novamente."
   download_missing_data      : "Por favor delimite um terreno no mapa para prosseguir."
+  download_disclaimer        : "Ao enviar este email, está a autorizar o Grupo de Trabalho, criado no Trinhão em 19 de Agosto de 2017, a utilizar e divulgar os dados acima fornecidos para ajudar os proprietários a identificar os seus prédios rústicos."
 # Brazilian Portuguese
 pt-BR:
   page                       : "Página"
