@@ -11,18 +11,16 @@ layout: single
 </div>
 <div id="form">
   <table>
+    <tr>
+      <td><a href="{{ site.baseurl }}/assets/declaracao_patrimonio_rustico.xls">Declaração Património Rústico</a></td>
+      <td>Utilize este modelo para os dados das suas cadernetas prediais</td>
+    </tr>
     <tr><td>Proprietário (obrigatório):</td> <td><input id='owner' type='text'/> </td> </tr>
     <tr><td>Freguesia (obrigatório):</td> <td><select id='parish'> +
             <option value='061208 - PORTELA DO FOJO-MACHIO' SELECTED>Portela do Fojo - Machio</option>
             </select> </td></tr>
     <tr><td>Nº Artigo Matricial (obrigatório):</td> <td><input id='article' type='number' min="0"/> </td> </tr>
-    <tr><td>Ano Inscrição:</td> <td><input id='year' type='number' min="1900" max="2099" step="1" value="1990" /> </td> </tr>
-    <tr><td>Designação:</td> <td><input id='description' type='text'/> </td> </tr>
-    <tr><td>Confrontação Norte:</td> <td><input id='boundary-north' type='text'/> </td> </tr>
-    <tr><td>Confrontação Sul:</td> <td><input id='boundary-south' type='text'/> </td> </tr>
-    <tr><td>Confrontação Nascente:</td> <td><input id='boundary-east' type='text'/> </td> </tr>
-    <tr><td>Confrontação Poente:</td> <td><input id='boundary-west' type='text'/> </td> </tr>
-    <tr><td>Área Registada (m<sup>2</sup>):</td> <td><input id='area-reg' type='number' min="0"/> </td> </tr>
+    <tr><td>Nome/Localização Prédio:</td> <td><input id='name' type='text'/> </td> </tr>
     <tr><td>Área Estimada (m<sup>2</sup>):</td> <td><div id='area-est'/> </td> </tr>
     <tr>
       <td><input id='open' type='file' name='csv'/></td>
@@ -42,13 +40,7 @@ layout: single
         'owner',
         'parish',
         'article',
-        'year',
-        'description',
-        'boundary-north',
-        'boundary-south',
-        'boundary-east',
-        'boundary-west',
-        'area-reg',
+        'name',
         'area-est'];
 
   function initMap() {
@@ -141,8 +133,8 @@ layout: single
       var article = document.getElementById('article').value;
       if (filename && article) {
         filename += "-" + article;
-        var description = document.getElementById('description').value;
-        if (description) filename += "-" + description;
+        var name = document.getElementById('name').value;
+        if (name) filename += "-" + name;
         filename += ".csv";
 
         downloadCSV({
@@ -207,13 +199,7 @@ layout: single
         'Proprietario',
         'Freguesia',
         'Artigo',
-        'Ano Inscricao',
-        'Designacao',
-        'Confrontacao Norte',
-        'Confrontacao Sul',
-        'Confrontacao Nascente',
-        'Confrontacao Poente',
-        'Area Registada',
+        'Nome',
         'Area Estimada'];
     result += metadataHeader.join(columnDelimiter);
     result += lineDelimiter;
