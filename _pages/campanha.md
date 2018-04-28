@@ -1,7 +1,7 @@
 ---
 title: "Campanha"
 layout: single
-permalink: /campanha/
+permalink: /campanhaweb/
 author_profile: true
 ---
 
