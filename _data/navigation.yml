@@ -1,5 +1,7 @@
 # main links
 main:
+  - title: "Campanha"
+    url: /campanha/
   - title: "Mapas"
     url: /mapas/
   - title: "Notícias"
