@@ -1,6 +1,6 @@
 
 ---
-title: "Sessão Informativa - Georreferenciação Terrenos "
+title: "Sessão Informativa - Georreferenciação Terrenos"
 excerpt: "Audio e fotografias da sessão no dia 20 de Maio no Trinhão"
 ---
 
