@@ -6,7 +6,7 @@ excerpt: "Audio e fotografias da sessão no dia 20 de Maio no Trinhão"
 
 Neste almoço foi apresentado o projecto de georreferênciação que inclui não só a marcação dos terrenos como foi exemplificado mas ainda a análise do solo que permitirá uma plantação mais adequada.
 
-![alt text](https://drive.google.com/open?id=1tC_TMafnx5lC222FiwW3Uh33xxMCn4OW)
+![alt text](trinhaonomapa.github.io/assets/images/georreferenciacao.jpg)
 Veja na nossa página do Facebook as restantes fotografias
 
 [audio 1](https://drive.google.com/open?id=162H92S6DesBA8Mn40CmTO06VnRYF1d5e)
