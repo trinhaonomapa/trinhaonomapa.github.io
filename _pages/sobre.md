@@ -15,3 +15,6 @@ Com vista a uma reorganização do território florestal e propriedades rústica
 - disponibilizar um espaço onde os habitantes e descendentes podem consultar informação sobre as suas propriedades.
 
 Esperamos, num futuro próximo, servir de exemplo para outras aldeias vizinhas de maneira a preservar a paisagem de um dos concelhos mais bonitos de Portugal.
+
+
+Regulamentação Geral de Protecção de Dados: O Trinhão no Mapa não recolhe dados dos proprietários sem consentimento. Todos os dados concedidos são apenas utilizados de maneira a identificar as propriedades que ainda não foram registadas para garantir um Trinhão limpo e protegido de futuros incêndios.
