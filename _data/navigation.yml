@@ -1,7 +1,7 @@
 # main links
 main:
-  - title: "Campanha"
-    url: /campanhaweb/
+  - title: "Georreferenciação"
+    url: /georreferenciacao/
   - title: "Mapas"
     url: /mapas/
   - title: "Notícias"
