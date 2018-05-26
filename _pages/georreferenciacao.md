@@ -10,7 +10,7 @@ Consulte [aqui](https://drive.google.com/open?id=1g9ajS8nibzQ5Pf-h7P_kdMsabtUV--
 
 Neste momento já temos 70 propriedades idetificadas:
 
-[localizacao](https://raw.githubusercontent.com/trinhaonomapa/trinhaonomapa.github.io/master/assets/images/localizacao.png)
+![localizacao](https://raw.githubusercontent.com/trinhaonomapa/trinhaonomapa.github.io/master/assets/images/localizacao.png)
 
 Nota: tendo em conta que o estágio é curricular e o nosso projecto não tem fins lucrativos precisamos do vosso contributo para ajudar nos custos de transporte e impressão dos registos. Faça o seu contributo [**aqui**](https://ppl.com.pt/vaquinha/georeferenciacao).
 
