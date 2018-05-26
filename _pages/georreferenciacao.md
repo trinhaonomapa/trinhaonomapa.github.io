@@ -1,5 +1,5 @@
 ---
-title: "Georreferênciação"
+title: "Georreferenciação"
 layout: single
 permalink: /georreferenciacao/
 author_profile: true
