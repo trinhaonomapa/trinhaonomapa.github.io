@@ -14,6 +14,6 @@ Neste momento, a 25 de Maio de 2018, já georreferenciamos estas propriedades:
 
 Se quiser registar a sua propriedade nesta área envie-nos um e-mail para [trinhaonomapa@gmail.com](trinhaonomapa@gmail.com). Regulamentação Geral de Protecção de Dados: O Trinhão no Mapa não recolhe dados dos proprietários sem consentimento. Todos os dados que recebemos por e-mail são apenas utilizados de maneira a identificar as propriedades que ainda não foram registadas para garantir um Trinhão limpo e protegido de futuros incêndios.
 
-Nota: o estágio é curricular e o nosso projecto não tem fins lucrativos pelo que todos os custos de trasporte e impressão dos registos são suportados pelo almoço organizado dia 20 de Maio no Trinhão (obrigado aos presentes) e pelos contributos da campanha no PPL. Faça o seu contributo [**aqui**](https://ppl.com.pt/vaquinha/georeferenciacao).
+Nota: o estágio é curricular e o nosso projecto não tem fins lucrativos pelo que todos os custos de transporte e impressão dos registos são suportados pelo almoço organizado dia 20 de Maio no Trinhão (obrigado aos presentes) e pelos contributos da campanha no PPL. Faça o seu contributo [**aqui**](https://ppl.com.pt/vaquinha/georeferenciacao).
 
 
