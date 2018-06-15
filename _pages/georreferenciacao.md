@@ -12,6 +12,6 @@ Neste momento, a 13 de Junho de 2018, já georreferenciámos estas propriedades:
 
 ![localizacao](https://raw.githubusercontent.com/trinhaonomapa/trinhaonomapa.github.io/master/assets/images/loc2.jpg)
 
-Se quiser registar a sua propriedade nesta área leias as ![instruções](http://trinhaonomapa.org/instrucoes/) e em caso de dúvida envie-nos um e-mail para [trinhaonomapa@gmail.com](trinhaonomapa@gmail.com). Regulamentação Geral de Protecção de Dados: O Trinhão no Mapa não recolhe dados dos proprietários sem consentimento. Todos os dados que recebemos por e-mail são apenas utilizados de maneira a identificar as propriedades que ainda não foram registadas para garantir um Trinhão limpo e protegido de futuros incêndios.
+Se quiser registar a sua propriedade nesta área leias as ![instruções](http://trinhaonomapa.github.io/_pages/instrucoes.md) e em caso de dúvida envie-nos um e-mail para [trinhaonomapa@gmail.com](trinhaonomapa@gmail.com). Regulamentação Geral de Protecção de Dados: O Trinhão no Mapa não recolhe dados dos proprietários sem consentimento. Todos os dados que recebemos por e-mail são apenas utilizados de maneira a identificar as propriedades que ainda não foram registadas para garantir um Trinhão limpo e protegido de futuros incêndios.
 
 
