@@ -46,7 +46,11 @@ Limpeza dos acessos às delimitações dos terrenos
 Os terrenos localizados nas coroas de proteção do Trinhão e Vale Porco têm prioridade sobre os demais.
 
 Contactos:
+
 Eng.º Ricardo: 96 682 84 93			Eng.ª Rita:  96 181 23 78
-Norberto: 93 931 23 23	Anselmo: 96 707 29 94 	E-mail: trinhaonomapa@gmail.com
+
+Norberto: 93 931 23 23	Anselmo: 96 707 29 94 
+
+E-mail: trinhaonomapa@gmail.com
 
 
