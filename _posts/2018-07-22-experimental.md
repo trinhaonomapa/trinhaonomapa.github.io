@@ -20,9 +20,13 @@ Consulte ainda [aqui](https://drive.google.com/file/d/1QzQElWuLnTBdr8en8EKudoePH
 
 Abaixo listamos vários vídeos:
 [Vídeo de agradecimento dos Estagiários](https://youtu.be/Ndf1UTUjdxY)
+
 [Intervenção do grupo parlamentar "Os Verdes"](https://youtu.be/C9GoCzspvZY)
+
 [Intervenção do Presidente da ATDS](https://youtu.be/gIMoLKmJ7mw)
+
 [Intervenção do Presidente da Junta de Freguesia](https://youtu.be/An0EDaByPjM)
+
 [Intervenção do Vice-Presidente da Câmara](https://youtu.be/qojR0af37sw)
 
 Para mais fotografias veja na nossa página do Facebook [aqui](https://www.facebook.com/trinhaonomapa/posts/2253642911342433) e [aqui](https://www.facebook.com/trinhaonomapa/posts/2254605571246167).
