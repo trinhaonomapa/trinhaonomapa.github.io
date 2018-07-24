@@ -15,12 +15,12 @@ O sucesso está à vista, consulte aqui a apresentação dos futuros Engenheiros
 Consulte ainda aqui o texto de um dos colaboradores do grupo de trabalho, Anselmo Lopes.
 
 Abaixo listamos vários vídeos:
-![Vídeo de agradecimento dos Estagiários](https://youtu.be/Ndf1UTUjdxY)
-![Intervenção do grupo parlamentar "Os Verdes"](https://youtu.be/C9GoCzspvZY)
-![Intervenção do Presidente da ATDS](https://youtu.be/gIMoLKmJ7mw)
-![Intervenção do Presidente da Junta de Freguesia](https://youtu.be/An0EDaByPjM)
-![Intervenção do Vice-Presidente da Câmara](https://youtu.be/qojR0af37sw)
+[Vídeo de agradecimento dos Estagiários](https://youtu.be/Ndf1UTUjdxY)
+[Intervenção do grupo parlamentar "Os Verdes"](https://youtu.be/C9GoCzspvZY)
+[Intervenção do Presidente da ATDS](https://youtu.be/gIMoLKmJ7mw)
+[Intervenção do Presidente da Junta de Freguesia](https://youtu.be/An0EDaByPjM)
+[Intervenção do Vice-Presidente da Câmara](https://youtu.be/qojR0af37sw)
 
 e algumas fotografias:
 
-- veja mais ![aqui](https://www.facebook.com/trinhaonomapa/posts/2253642911342433) e ![aqui]().
+- veja mais [aqui](https://www.facebook.com/trinhaonomapa/posts/2253642911342433) e [aqui]().
