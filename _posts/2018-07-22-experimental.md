@@ -19,7 +19,10 @@ O sucesso está à vista, consulte [aqui](https://drive.google.com/file/d/1Rd0yX
 Consulte ainda [aqui](https://drive.google.com/file/d/1QzQElWuLnTBdr8en8EKudoePHinA1UjD/view?usp=sharing) o texto de um dos colaboradores do grupo de trabalho, Anselmo Lopes. E ainda, [aqui](https://drive.google.com/file/d/1Sg-J53fhw2kpT0qknu24Ix5u74igzA5k/view?usp=sharing), uma apresentação da Ludovina Lopes que oferece uma visão global para o futuro do projecto.
 
 Abaixo listamos vários vídeos:
+
 [Vídeo de agradecimento dos Estagiários](https://youtu.be/Ndf1UTUjdxY)
+
+[Intervenção da Professora da ESAC](https://youtu.be/o0P68ENr0aQ)
 
 [Intervenção do grupo parlamentar "Os Verdes"](https://youtu.be/C9GoCzspvZY)
 
